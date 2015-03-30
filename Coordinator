@@ -1,0 +1,48 @@
+package jrJava.lol;
+
+import java.awt.Color;
+
+import resources.*;
+
+public class Coordinator {
+	
+	public static void main(String[] args) {
+		
+		DrawingBoard board = new DrawingBoard(700,500);
+		Timer timer =new Timer();
+		
+		Ball ballA = new Ball(5,2, Color.red);
+		Ball ballB = new Ball(-3, 2, Color.pink);
+		Ball ballC = new Ball(2,-4, Color.black);
+		
+		for(int i=0; i <10000; i++){
+			
+			board.clear();
+			ballA.shrink();
+			ballB.shrink();
+			ballC.shrink();
+			
+			ballA.faster();
+			ballB.faster();
+			ballC.faster();
+			
+			ballA.move();
+			ballB.move();
+			ballC.move();
+			
+			
+			ballA.draw(board);
+			ballB.draw(board);
+			ballC.draw(board);
+			
+			board.repaint();
+			
+			timer.pause(50);
+		}
+	}
+
+}
+
+	
+
+
